@@ -1,0 +1,10 @@
+<p>list-by-category works!</p>
+<ul>
+    <li *ngFor="let item of articles | paginate:{itemsPerPage: pageSize, currentPage: page, totalItems: totalCount}">
+         {{item.title}}
+    </li>
+</ul>
+<pagination-controls (pageChange)="pageChange($event)" ></pagination-controls>
+<h1>{{totalCount}}</h1>
+
+

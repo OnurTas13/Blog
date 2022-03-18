@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Title</label>
+                    <input
+                        [ngClass]="{'input-error': articleForm.controls.title.invalid && (articleForm.controls.title.touched || submitted)}"
+                        formControlName="title" type="text" class="form-control" id="exampleInputEmail1">
+                    <div *ngIf="articleForm.controls.title.invalid && (articleForm.controls.title.touched || submitted)"
+                        class="alert">
+                        <div class="myvalidation" *ngIf="articleForm.controls.title.hasError('required')">
+                            Please enter title
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Category</label>
+                    <select
+                        [ngClass]="{'input-error': articleForm.controls.categoryId.invalid && (articleForm.controls.categoryId.touched || submitted)}"
+                        formControlName="categoryId" class="form-control" id="exampleFormControlSelect1">
+                        <option [ngValue]="null">Select Category</option>
+                        <option *ngFor="let item of categories" [ngValue]="item.id">{{item.name}}</option>
+                    </select>
+                    <div *ngIf="articleForm.controls.categoryId.invalid && (articleForm.controls.categoryId.touched || submitted)"
+                        class="alert">
+                        <div class="myvalidation" *ngIf="articleForm.controls.categoryId.hasError('required')">
+                            Please select category
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Content Summary</label>
+                    <textarea
+                        [ngClass]="{'input-error': articleForm.controls.contentSummary.invalid && (articleForm.controls.contentSummary.touched || submitted)}"
+                        formControlName="contentSummary" class="form-control" id="exampleFormControlTextarea1"
+                        rows="3"></textarea>
+                        <div *ngIf="articleForm.controls.contentSummary.invalid && (articleForm.controls.contentSummary.touched || submitted)"
+                        class="alert">
+                        <div class="myvalidation" *ngIf="articleForm.controls.contentSummary.hasError('required')">
+                            Please provide content Summary
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Content Main</label>
+                    <textarea
+                        [ngClass]="{'input-error': articleForm.controls.contentMain.invalid && (articleForm.controls.contentMain.touched || submitted)}"
+                        formControlName="contentMain" class="form-control" id="exampleFormControlTextarea1"
+                        rows="3"></textarea>
+                        <div *ngIf="articleForm.controls.contentMain.invalid && (articleForm.controls.contentMain.touched || submitted)"
+                        class="alert">
+                        <div class="myvalidation" *ngIf="articleForm.controls.contentMain.hasError('required')">
+                            Please provide content Main
+                        </div>
+                    </div>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" [src]="article.picture || '../../../assets/template/images/blog/01.jpg'" alt="Card image cap">
+                <div class="card-body">
+                  <input type="file" (change)="upload($event)">
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

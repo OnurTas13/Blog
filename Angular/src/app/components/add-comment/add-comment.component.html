@@ -1,0 +1,36 @@
+<h5 class="card-title mb-0 pt-4 border-top">Leave A Comment :</h5>
+<form class="mt-3" [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="mb-3 position-relative">
+                <label class="form-label small fw-bold">Your Comment</label>
+                <textarea formControlName="content" [ngClass]="{ 'input-error': commentForm.controls.content.invalid && (commentForm.controls.content.touched || submitted) }" placeholder="Your Comment" rows="5" name="message" class="form-control" required="" style="height: 83px;"></textarea>
+                <div *ngIf="commentForm.controls['content'].invalid && (commentForm.controls['content'].touched || submitted)" class="alert" >
+                    <div class="myvalidation" *ngIf="commentForm.controls.content.hasError('required')">
+                    Please enter comment
+                  </div>
+                </div>
+            </div>
+        </div><!--end col-->
+
+        <div class="col-lg-6">
+            <div class="mb-3 position-relative">
+                <label class="form-label small fw-bold">Name <span class="text-danger">*</span></label>
+                <input  [ngClass]="{ 'input-error': commentForm.controls.name.invalid && (commentForm.controls.name.touched || submitted) }" formControlName="name" id="name" name="name" type="text" placeholder="Name" class="form-control" required="">
+                <div *ngIf="commentForm.controls['name'].invalid && (commentForm.controls['name'].touched || submitted)" class="alert" >
+                    <div class="myvalidation" *ngIf="commentForm.controls.name.hasError('required')">
+                    Please enter username
+                  </div>
+                </div>
+            </div>
+        </div><!--end col-->
+
+    
+
+        <div class="col-md-12">
+            <div class="send text-end">
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </div>
+        </div><!--end col-->
+    </div><!--end row-->
+</form><!--end form-->

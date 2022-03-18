@@ -1,0 +1,76 @@
+<div id="preloader" style="visibility: hidden; opacity: 0;">
+    <div id="status">
+        <div class="logo">
+            <img src="images/logo-dark.png" height="25" class="d-block mx-auto" alt="">
+        </div>
+        <div class="sk-chase mt-4">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+        </div>
+    </div>
+</div>
+<div class="back-to-home rounded d-none d-sm-block">
+    <a routerLink="../main/home/1" class="text-white rounded d-inline-block text-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home fea icon-sm"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline  points="9 22 9 12 15 12 15 22"></polyline></svg></a>
+</div>
+<section class="user-pages vh-100 d-flex align-items-center">
+    <div class="bg-overlay bg-overlay-white"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-8">
+                <div class="text-center">
+                    <a href="javascript:void(0)">
+                        <img src="images/logo-dark.png" height="25" alt="">
+                    </a>
+                </div>
+
+                <div class="login-page bg-white shadow-lg rounded p-4 mt-4 position-relative">
+                    <div class="text-center">
+                        <h5 class="mb-4 pb-2">Sign In</h5>  
+                    </div>
+                    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="mb-3 position-relative">
+                                    <label class="form-label small fw-bold">User Name <span class="text-danger">*</span></label>
+                                    <input formControlName="userName" [ngClass]="{'input-error': (submitted && loginForm.controls.userName.invalid)}" type="text" class="form-control" name="email" required="" placeholder="User Name :">
+                                    <div *ngIf="loginForm.controls['userName'].invalid && submitted" class="alert" >
+                                        <div class="myvalidation" *ngIf="loginForm.controls.userName.hasError('required')">
+                                        Please enter username
+                                      </div>
+                                    </div>
+                                </div>
+                            </div><!--end col-->
+
+                            <div class="col-12">
+                                <div class="mb-3 position-relative">
+                                    <label class="form-label small fw-bold">Password <span class="text-danger">*</span></label>
+                                    <input formControlName="password" [ngClass]="{'input-error': (submitted && loginForm.controls.password.invalid)}" type="password" class="form-control" required="" placeholder="Password :">
+                                    <div *ngIf="loginForm.controls['password'].invalid && submitted" class="alert" >
+                                        <div class="myvalidation" *ngIf="loginForm.controls.password.hasError('required')">
+                                        Please enter password
+                                      </div>
+                                    </div>
+                                </div>
+                            </div><!--end col-->
+
+                           
+
+                            <div class="col-12 mb-0">
+                                <button type="submit" class="btn btn-primary w-100">Sign in</button>
+                            </div><!--end col-->
+
+                          
+
+                            
+                            
+                        </div><!--end row-->
+                    </form><!--end form-->
+                </div><!--end login-->
+            </div>
+        </div><!--end row-->
+    </div> <!--end container-->
+</section>

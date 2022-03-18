@@ -1,0 +1,32 @@
+<section class="section" id="blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-12 mb-4 pb-2" *ngFor="let item of articles |paginate:{itemsPerPage:pageSize,currentPage:page,totalItems:totalCount} ">
+                        <app-article-card  [article]="item"></app-article-card> 
+                </div>
+                        
+                
+
+                <div class="col-12">
+                    <ul class="pagination justify-content-center mb-0">
+                        <pagination-controls (pageChange)="pageChange($event)"></pagination-controls>
+                        <!-- <li class="page-item"><a class="page-link" href="javascript:void(0)" aria-label="Previous">Previous</a></li>
+                        <li class="page-item active"><a class="page-link" href="javascript:void(0)">1</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0)" aria-label="Next">Next</a></li> -->
+                    </ul>
+                </div><!--end col-->
+            </div><!--end row-->
+        </div><!--end container-->
+    </section>
+
+
+
+
+
+
+
+
+
+

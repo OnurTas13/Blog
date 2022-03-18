@@ -1,0 +1,34 @@
+<section class="section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card blog-post border-0 rounded shadow overflow-hidden">
+                    <img src="../assets/template/images/blog/single.jpg" class="img-fluid" alt="">
+                    <div class="card-body p-4">
+                        <div class="post-meta d-flex justify-content-between mb-4">
+                            <ul class="list-unstyled mb-0">
+                                <li class="list-inline-item me-2 mb-0"><a href="javascript:void(0)" class="text-muted like"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart fea icon-sm"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 33</a></li>
+                                <li class="list-inline-item"><a href="javascript:void(0)" class="text-muted comments"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle fea icon-sm"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 08</a></li>
+                            </ul>
+                            <a href="javascript:void(0)" class="text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag fea icon-sm"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg> Designing</a>
+                        </div>
+                        
+                        <p class="text-muted">{{article.contentMain}}</p>
+                         
+                    
+                        <h5 class="card-title mb-0 pt-4 border-top">Comments :</h5>
+                        <ul class="media-list list-unstyled mb-4">
+                            <li class="mt-4" *ngFor="let item of comments" >
+                                <app-comment-card [comment]="item"></app-comment-card>
+                            </li>               
+                        </ul>
+
+                        <app-add-comment (getCommentByArticleId)="getCommentByArticleId()"></app-add-comment>
+
+                    
+                    </div>
+                </div>
+            </div><!--end col-->
+        </div><!--end row-->
+    </div><!--end container-->
+</section>

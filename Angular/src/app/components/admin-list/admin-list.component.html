@@ -1,0 +1,25 @@
+<table class="table table-sm">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+          
+      <tr *ngFor="let item of articlePgn.articles | paginate: {
+      itemsPerPage: pageSize,
+      currentPage: page,
+      totalItems: totalCount }">
+        <th><img style="width: auto; height: 30px;" [src]="item.picture || '../../../assets/template/images/blog/01.jpg'" ></th>
+        <td>{{item.title}}</td>
+        <td><button [routerLink]="'../../edit/'+ item.id" type="button" class="btn btn-success btn-sm">Edit</button></td>
+        <td><button (click)="deleteArticle(item.id)" type="button" class="btn btn-danger btn-sm">Delete</button></td>
+     </tr>
+        
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="pageChange($event)"></pagination-controls>
+  
